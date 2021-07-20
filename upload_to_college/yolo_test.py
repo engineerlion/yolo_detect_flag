@@ -132,6 +132,9 @@ def apply_classifier(x, model, img, im0):
 
             for j, a in enumerate(d):  # per item
                 cutout = im0[i][int(a[1]):int(a[3]), int(a[0]):int(a[2])]
+                #cutout = img[i][int(a[1]):int(a[3]), int(a[0]):int(a[2])]
+                
+                
                 #image = Image.fromarray(cv2.cvtColor(cutout,cv2.COLOR_BGR2RGB))
                 image = Image.fromarray(cutout)
                 #im = cv2.resize(cutout, (112, 112))  # BGR
@@ -233,7 +236,8 @@ def run(
         for i in range(det.shape[0]):
             #if len(det):
             #det[i, :4] = scale_coords(img.shape[2:], det[i, :4], img0.shape).round()
-            det[i,:4] = xyxy2xywh(torch.tensor(det[i,:4]).view(1, 4)) / gn
+            #det[i,:4] = xyxy2xywh(torch.tensor(det[i,:4]).view(1, 4)) / gn
+            det[i,:4] = torch.tensor(det[i,:4]) / gn
     
         print(reversed(det))
     #pred[0][:, :4] = scale_coords(img.shape[2:], pred[0][:, :4], img0.shape).round()
