@@ -30,7 +30,7 @@ def ap_per_class(tp, conf, pred_cls, target_cls, plot=False, save_dir='.', names
     """
 
     # Sort by objectness
-    import pdb;pdb.set_trace()
+    #import pdb;pdb.set_trace()
     #argsort原本返回从小到大的索引，加负号得到从大到小的索引
     i = np.argsort(-conf)
     #将预测结果安照score降序排列

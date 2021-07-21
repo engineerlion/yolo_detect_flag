@@ -49,3 +49,24 @@ h0021sst65l
 i00211vjemz
 i09381b3eeg
 
+python test.py --weights yolov5_best_0721.pt \
+--data flag.yaml --img 640 --task test \
+--name test_new_yolom_conf0.1 \
+--conf-thres 0.1 \
+--save-json \
+--coco-path /data/flag/flag_coco_val_all.json
+
+
+python test.py --weights yolov5s_best.pt \
+--data flag.yaml --img 640 --task test \
+--name test_yolos_conf0.1 \
+--conf-thres 0.1 \
+--save-json \
+--coco-path /data/flag/flag_coco_val_all.json
+
+python detect.py --weights yolov5_best_0721.pt \
+--classifier-weight mobilenet.pt \
+--source /data/flag/olympic --name olympic_logo --conf-thres 0.7
+
+python detect.py --weights yolov5_best_0721.pt \
+--source /data/flag/test_videos/c0021j4eqth.mp4 --name c0021j4eqth_0721 --conf-thres 0.7

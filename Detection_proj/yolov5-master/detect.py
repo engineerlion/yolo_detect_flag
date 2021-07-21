@@ -72,7 +72,7 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
         model.half()  # to FP16
 
     # Second-stage classifier
-    classify = True
+    classify = False
     if classify:
         import pdb;pdb.set_trace()
         modelc = load_classifier_ljh(name='mobilenet_v3_large', n=2)  # initialize
